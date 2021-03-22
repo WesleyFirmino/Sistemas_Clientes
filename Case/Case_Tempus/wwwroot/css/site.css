@@ -1,0 +1,75 @@
+﻿.tempus-badge {
+    width: 80px;
+    padding: 4px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.bg-red {
+    background-color: #dc3545;
+}
+
+.bg-yellow {
+    background-color: #ffc107;
+}
+
+.bg-green {
+    background-color: #28a745;
+}
+
+.input-group > .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.table > thead > tr > th {
+    font-family: Calibri;
+    text-transform: uppercase;
+}
+
+.card-title {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.card {
+    border: none;
+    border-bottom: 4px solid #6c757d;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: #e9ecef;
+}
+
+    .card:hover {
+        transition: 1s ease-out;
+        background-color: rgba(233, 236, 239, 0.45);
+    }
+
+.input-group {
+    padding-left: 0;
+}
+
+.list-group-item a {
+    text-decoration: none;
+}
+
+.list-group-item:hover {
+    transition: 1s ease-out;
+    background-color: #f8f9fa;
+}
+
+dl > dt {
+    font-size: 12.5px;
+    font-style: italic;
+    color: #6c757d;
+}
+
+dl > dd {
+    font-size: 21px;
+    font-weight: 600;
+    color: #343a40;
+    padding-bottom: 4px;
+}

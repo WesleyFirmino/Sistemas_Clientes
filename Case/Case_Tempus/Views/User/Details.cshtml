@@ -1,0 +1,37 @@
+﻿@model CaseTempus.Models.UserViewModel
+@{
+  ViewData["Title"] = "Detalhes do usuário selecionado";
+}
+
+<div class="container">
+  <header class="jumbotron flex-column">
+    <small class="d-block text-uppercase text-muted">Usuários</small>
+    <h1 class="display-4 font-weight-bold text-uppercase">Detalhes</h1>
+  </header>
+
+  <section>
+    <dl class="row no-gutters">
+      <dt class="col-12">@Html.DisplayNameFor(model => model.Name)</dt>
+      <dd class="col-12">@Html.DisplayFor(model => model.Name)</dd>
+
+      <dt class="col-12">@Html.DisplayNameFor(model => model.CPF)</dt>
+      <dd class="col-12">@Html.DisplayFor(model => model.CPF)</dd>
+
+      <dt class="col-12">@Html.DisplayNameFor(model => model.BirthDate)</dt>
+      <dd class="col-12">@Html.DisplayFor(model => model.BirthDate)</dd>
+
+      <dt class="col-12">@Html.DisplayNameFor(model => model.RegisterDate)</dt>
+      <dd class="col-12">@Html.DisplayFor(model => model.RegisterDate)</dd>
+
+      <dt class="col-12">@Html.DisplayNameFor(model => model.FamilyIncome)</dt>
+      <dd class="col-12">@Html.DisplayFor(model => model.FamilyIncome)</dd>
+    </dl>
+
+    <form asp-action="Delete">
+      <input type="hidden" asp-for="Id" />
+
+      <a asp-action="Index" class="btn btn-link">Voltar</a>
+      <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+    </form>
+  </section>
+</div>

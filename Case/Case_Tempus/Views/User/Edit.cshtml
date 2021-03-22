@@ -1,0 +1,60 @@
+﻿@model CaseTempus.Models.UserViewModel
+@{
+  ViewData["Title"] = "Atualizar usuário";
+}
+
+<div class="container">
+  <header class="jumbotron flex-column">
+    <small class="d-block text-uppercase text-muted">Usuários</small>
+    <h1 class="display-4 font-weight-bold text-uppercase">Atualizar usuário</h1>    
+  </header>
+
+  <section class="row no-gutters">
+    <div class="col-12">
+      <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+          <label asp-for="Name" class="control-label"></label>
+          <input asp-for="Name" class="form-control" required maxlength="150" type="text" />
+          <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+          <label asp-for="CPF" class="control-label"></label>
+          <input asp-for="CPF" class="form-control" pattern="\d*" required type="number" maxlength="11" />
+          <span asp-validation-for="CPF" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+          <label asp-for="BirthDate" class="control-label"></label>
+          <input asp-for="BirthDate" class="form-control" required />
+          <span asp-validation-for="BirthDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+          <label asp-for="RegisterDate" class="control-label"></label>
+          <input asp-for="RegisterDate" class="form-control" readonly />
+          <span asp-validation-for="RegisterDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+          <label asp-for="FamilyIncome" class="control-label"></label>
+          <input asp-for="FamilyIncome" class="form-control" type="number" />
+          <span asp-validation-for="FamilyIncome" class="text-danger"></span>
+        </div>
+
+        <div class="form-footer">
+          <a asp-action="Index" class="btn btn-link">Voltar</a>
+          <input type="submit" value="Salvar" class="btn btn-primary" />
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+
+
+@section Scripts {
+  @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

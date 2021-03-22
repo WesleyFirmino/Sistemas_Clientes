@@ -1,0 +1,74 @@
+﻿@model IEnumerable<CaseTempus.Models.UserViewModel>
+@{
+  ViewData["Title"] = "Usuários";
+}
+
+<div class="container">
+  <header class="jumbotron row no-gutters">
+    <div class="col-12">
+      <small class="d-block text-uppercase text-muted">Usuários</small>
+      <h1 class="display-4 font-weight-bold text-uppercase">Meus usuários</h1>
+    </div>
+
+    <div class="col-12">
+      <form asp-action="Search">
+        <div class="input-group">
+          <input type="text" id="searchUser" name="searchUser" value="@ViewData["currentSearch"]" class="form-control" placeholder="Pesquisar...">
+          <button class="btn btn-primary" type="submit">Pesquisar</button>
+        </div>
+      </form>
+    </div>
+  </header>
+
+  @if (!Model.Any())
+  {
+    <div class="alert bg-dark text-center">
+      <h4 class="alert-heading text-white font-weight-bold">Usuários</h4>
+
+      @if (ViewData["currentSearch"] == null)
+      {
+        <p class="text-light">Não foi possível encontrar nenhum usuário cadastrado até o momento.</p>
+      }
+      else
+      {
+        <p class="text-light">Não foi possível encontrar nenhum usuário com nome <strong class="text-uppercase">@ViewData["currentSearch"]</strong>.</p>
+      }
+    </div>
+  }
+  else
+  {
+    <section class="row no-gutters">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-sm table-light table-hover">
+            <thead>
+              <tr>
+                <th></th>
+                <th>@Html.DisplayNameFor(model => model.Name)</th>
+                <th>@Html.DisplayNameFor(model => model.FamilyIncome)</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach (var item in Model)
+              {
+                <tr>
+                  <td class="w-25">
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-link">Detalhes</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Deletar</a>
+                  </td>
+                  <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                  <td>
+                    <div class="tempus-badge @BadgeHelper.Execute(item.FamilyIncome)">
+                      @(String.Format("{0:C0}", item.FamilyIncome))
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  }
+</div>

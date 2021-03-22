@@ -1,0 +1,50 @@
+﻿@model CaseTempus.Models.ReportViewModel
+@{
+  ViewData["Title"] = "Relatórios";
+}
+
+<div class="container">
+  <header class="jumbotron row no-gutters">
+    <div class="col-12">
+      <small class="d-block text-uppercase text-muted">Usuários</small>
+      <h1 class="display-4 font-weight-bold text-uppercase">Relatório</h1>
+    </div>
+
+    <div class="col-12">
+      <form asp-action="Report">
+        <div class="btn-group">
+          <button type="submit" id="reportPeriod" name="reportPeriod" value="month" class="btn btn-info">Mês atual</button>
+          <button type="submit" id="reportPeriod" name="reportPeriod" value="week" class="btn btn-info">Semana</button>
+          <button type="submit" id="reportPeriod" name="reportPeriod" value="today" class="btn btn-info">Hoje</button>
+        </div>
+      </form>
+    </div>
+  </header>
+
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-body bg-dark">
+        <p class="card-title text-info">> 18 anos</p>
+        <h2 class="card-text text-light">@Model.GreaterThanEighteen</h2>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body bg-dark">
+        <p class="card-title text-info">Classe A</p>
+        <h2 class="card-text text-light">@Model.ClassA</h2>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body bg-dark">
+        <p class="card-title text-info">Classe B</p>
+        <h2 class="card-text text-light">@Model.ClassB</h2>
+      </div>
+    </div>
+    <div class="card bg-dark">
+      <div class="card-body">
+        <p class="card-title text-info">Classe C</p>
+        <h2 class="card-text text-light">@Model.ClassC</h2>
+      </div>
+    </div>
+  </div>
+</div>
